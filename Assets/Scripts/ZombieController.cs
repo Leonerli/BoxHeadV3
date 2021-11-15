@@ -91,8 +91,8 @@ public class ZombieController
             
             ///Attack code 
             Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 20f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 0.1f, ForceMode.Impulse);
             ///End of attack code
 
             alreadyAttacked = true;

@@ -117,9 +117,6 @@ public class whiteZombieController
 
                 Target target = player.transform.GetComponent<Target>();
 
-                
-
-
                 //Debug.Log("test1");
                 if (playerInAttackRange)
                 {
