@@ -1,8 +1,9 @@
 
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
-public class ZombieController
+public class whiteZombieController
     : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -12,9 +13,11 @@ public class ZombieController
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    public float damage;
+    public float countdown = 1.0f;
 
-    public Transform attackPoint;
-
+    float stopwatch = 0.0f;
+    
 
     //Patroling
     public Vector3 walkPoint;
@@ -44,11 +47,15 @@ public class ZombieController
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInAttackRange && playerInSightRange)
+        {
+            
+            AttackPlayer();
+        }
     }
-
     private void Patroling()
     {
+        stopwatch = 0;
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -74,6 +81,7 @@ public class ZombieController
 
     private void ChasePlayer()
     {
+        stopwatch = 0;
         agent.SetDestination(player.position);
     }
 
@@ -86,19 +94,52 @@ public class ZombieController
 
         transform.LookAt(targetposition);
 
-        if (!alreadyAttacked)
-        {
-            
-            ///Attack code 
-            Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 20f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
-            ///End of attack code
+        //Debug.Log("pos1");
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        //IEnumerator ExecuteAfterTime(float time)
+        stopwatch += Time.deltaTime;
+        if(stopwatch >= countdown)
+        {
+            // yield return new WaitForSeconds(countdown);
+            stopwatch = 0;
+            // Code to execute after the delay
+            //Debug.Log("yes...");
+
+            if (!alreadyAttacked)
+            {
+                //Vector3 off = (0.0, 1.0, 0.0);
+                ///Attack code heretransform.position +
+                //Rigidbody rb = Instantiate(projectile, off, Quaternion.identity).GetComponent<Rigidbody>();
+                // rb.AddForce(transform.forward * 20f, ForceMode.Impulse);
+                //rb.AddForce(transform.up * 1f, ForceMode.Impulse);
+                ///End of attack code
+                ///
+
+                Target target = player.transform.GetComponent<Target>();
+
+                
+
+
+                //Debug.Log("test1");
+                if (playerInAttackRange)
+                {
+                    //Debug.Log("test2");
+                    if (target != null)
+                    {
+                        target.TakeDamage(damage);
+                    }
+                }
+
+                
+
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
         }
+        
     }
+
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
