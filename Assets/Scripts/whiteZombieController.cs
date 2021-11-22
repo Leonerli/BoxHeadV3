@@ -15,7 +15,7 @@ public class whiteZombieController
     public float health;
     public float damage;
     public float countdown = 1.0f;
-
+    private Animator anim;
     float stopwatch = 0.0f;
     
 
@@ -32,6 +32,12 @@ public class whiteZombieController
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     private void Awake()
     {
@@ -72,6 +78,7 @@ public class whiteZombieController
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+        //anim.SetFloat("Speed", 0.0f);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
@@ -83,10 +90,12 @@ public class whiteZombieController
     {
         stopwatch = 0;
         agent.SetDestination(player.position);
+        anim.SetFloat("Blend", 0.5f);
     }
 
     private void AttackPlayer()
     {
+        
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
@@ -95,7 +104,7 @@ public class whiteZombieController
         transform.LookAt(targetposition);
 
         //Debug.Log("pos1");
-
+        
         //IEnumerator ExecuteAfterTime(float time)
         stopwatch += Time.deltaTime;
         if(stopwatch >= countdown)
@@ -104,6 +113,7 @@ public class whiteZombieController
             stopwatch = 0;
             // Code to execute after the delay
             //Debug.Log("yes...");
+            
 
             if (!alreadyAttacked)
             {
@@ -120,6 +130,7 @@ public class whiteZombieController
                 //Debug.Log("test1");
                 if (playerInAttackRange)
                 {
+                    
                     //Debug.Log("test2");
                     if (target != null)
                     {
@@ -133,7 +144,7 @@ public class whiteZombieController
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
         }
-        
+        anim.SetTrigger("Attack");
     }
 
 

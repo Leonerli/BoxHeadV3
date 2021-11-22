@@ -12,7 +12,7 @@ public class ZombieController
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
-
+    private Animator anim;
     public Transform attackPoint;
 
 
@@ -29,6 +29,12 @@ public class ZombieController
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
 
     private void Awake()
     {
@@ -62,6 +68,7 @@ public class ZombieController
     }
     private void SearchWalkPoint()
     {
+        anim.SetFloat("Blend", 0.0f);
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -74,6 +81,7 @@ public class ZombieController
 
     private void ChasePlayer()
     {
+        anim.SetFloat("Blend", 1.0f);
         agent.SetDestination(player.position);
     }
 
@@ -88,7 +96,7 @@ public class ZombieController
 
         if (!alreadyAttacked)
         {
-            
+            anim.SetTrigger("Attack");
             ///Attack code 
             Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
@@ -98,6 +106,7 @@ public class ZombieController
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+
     }
     private void ResetAttack()
     {

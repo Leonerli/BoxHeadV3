@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerHoldMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/LeftHip
+    m_Weight: 0
+  - m_Path: Armature/LeftHip/LeftUpperLeg
+    m_Weight: 0
+  - m_Path: Armature/LeftHip/LeftUpperLeg/LeftLowerLeg
+    m_Weight: 0
+  - m_Path: Armature/RightHIp
+    m_Weight: 0
+  - m_Path: Armature/RightHIp/RightUpperLeg
+    m_Weight: 0
+  - m_Path: Armature/RightHIp/RightUpperLeg/RightUpperLeg_001
+    m_Weight: 0
+  - m_Path: Armature/Spine
+    m_Weight: 0
+  - m_Path: Armature/Spine/Spine2
+    m_Weight: 0
+  - m_Path: Armature/Spine/Spine2/Head
+    m_Weight: 0
+  - m_Path: Armature/Spine/Spine2/LeftUpperArm
+    m_Weight: 0
+  - m_Path: Armature/Spine/Spine2/LeftUpperArm/LeftLowerArm
+    m_Weight: 0
+  - m_Path: Armature/Spine/Spine2/RightUpperArm
+    m_Weight: 1
+  - m_Path: Armature/Spine/Spine2/RightUpperArm/RightLowerArm
+    m_Weight: 1
+  - m_Path: ArmorPadding
+    m_Weight: 0
+  - m_Path: ArmorPadding2
+    m_Weight: 0
+  - m_Path: Beard
+    m_Weight: 0
+  - m_Path: Body
+    m_Weight: 0
+  - m_Path: Cube
+    m_Weight: 0
+  - m_Path: ElfEars
+    m_Weight: 0
+  - m_Path: Eye
+    m_Weight: 0
+  - m_Path: Eye_001
+    m_Weight: 0
+  - m_Path: Eyeball
+    m_Weight: 0
+  - m_Path: Eyeball2
+    m_Weight: 0
+  - m_Path: Goatee
+    m_Weight: 0
+  - m_Path: Hair
+    m_Weight: 0
+  - m_Path: HandleBarMustach
+    m_Weight: 0
+  - m_Path: HelmetHornedMax
+    m_Weight: 0
+  - m_Path: Horn
+    m_Weight: 0
+  - m_Path: Horn_002
+    m_Weight: 0
+  - m_Path: LLegPants
+    m_Weight: 0
+  - m_Path: LongGoatee
+    m_Weight: 0
+  - m_Path: LSleeve
+    m_Weight: 0
+  - m_Path: OrcJaw
+    m_Weight: 0
+  - m_Path: RaSleeve
+    m_Weight: 0
+  - m_Path: RFootBoots
+    m_Weight: 0
+  - m_Path: RFootBoots_001
+    m_Weight: 0
+  - m_Path: RLegPants
+    m_Weight: 0
+  - m_Path: ShortCape
+    m_Weight: 0
+  - m_Path: ShoulderPads
+    m_Weight: 0
+  - m_Path: ShoulderPads2
+    m_Weight: 0
+  - m_Path: Tooth
+    m_Weight: 0
+  - m_Path: Top
+    m_Weight: 0
