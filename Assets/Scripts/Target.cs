@@ -17,6 +17,9 @@ public class Target : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("DIEEEEE");
+        //Destroy(gameObject);
+        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }

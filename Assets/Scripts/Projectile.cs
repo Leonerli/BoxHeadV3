@@ -24,10 +24,12 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player detected");
-           Target target = player.transform.GetComponent<Target>();
+           Debug.Log("Player detected");
+           player = GameObject.Find("Player").transform;
+           TargetPlayer target = player.transform.GetComponent<TargetPlayer>();
            if (target != null)
             {
+                Debug.Log("player should take damage: " + damage);
                 target.TakeDamage(damage);
             }
         

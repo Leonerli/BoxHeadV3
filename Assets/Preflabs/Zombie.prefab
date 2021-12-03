@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6179533427714051897, guid: a7a54b458945f454f89df97ac5f8fed0, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6179533427714051897, guid: a7a54b458945f454f89df97ac5f8fed0, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
