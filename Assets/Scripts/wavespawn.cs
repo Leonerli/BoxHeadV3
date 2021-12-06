@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class wavespawn : MonoBehaviour
 {
-
+	public Text wavedisplay;
 	public enum SpawnState { SPAWNING, WAITING, COUNTING };
+	int numberwaves = 1;
 
 	[System.Serializable]
 	public class Wave
@@ -55,6 +57,7 @@ public class wavespawn : MonoBehaviour
 
 	void Update()
 	{
+		wavedisplay.text = "Wave: " + numberwaves.ToString();
 		if (state == SpawnState.WAITING)
 		{
 			if (!EnemyIsAlive())
@@ -83,6 +86,7 @@ public class wavespawn : MonoBehaviour
 	void WaveCompleted()
 	{
 		Debug.Log("Wave Completed!");
+		++numberwaves;
 
 		state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
@@ -91,6 +95,7 @@ public class wavespawn : MonoBehaviour
 		{
 			nextWave = 0;
 			Debug.Log("ALL WAVES COMPLETE! Looping...");
+			
 		}
 		else
 		{

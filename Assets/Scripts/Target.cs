@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Target : MonoBehaviour
 {
@@ -17,9 +18,10 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("DIEEEEE");
+        
         //Destroy(gameObject);
         //gameObject.SetActive(false);
         Destroy(gameObject);
+        Debug.Log("DIEEEEE");
     }
 }

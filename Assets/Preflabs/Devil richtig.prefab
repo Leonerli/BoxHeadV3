@@ -192,7 +192,7 @@ MonoBehaviour:
   walkPointRange: 5
   timeBetweenAttacks: 1
   projectile: {fileID: 3741410459251612523}
-  sightRange: 10
+  sightRange: 100
   attackRange: 5
   playerInSightRange: 1
   playerInAttackRange: 1
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff96049fa0f2fa44080e168eb875dfce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killeddisplay: {fileID: 6570776331660641261, guid: 8ef89c6e744e47f4085260228a7870d9, type: 3}
   health: 50
 --- !u!114 &2764623417533432178
 MonoBehaviour:

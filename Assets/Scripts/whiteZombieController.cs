@@ -14,7 +14,7 @@ public class whiteZombieController
 
     public float health;
     public float damage;
-    public float countdown = 1.0f;
+    public float countdown = 0.5f;
     private Animator anim;
     float stopwatch = 0.0f;
     

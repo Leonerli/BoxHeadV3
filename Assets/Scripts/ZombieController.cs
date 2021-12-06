@@ -98,6 +98,7 @@ public class ZombieController
         {
             anim.SetTrigger("Attack");
             ///Attack code 
+            projectile.SetActive(true);
             Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
             rb.AddForce(transform.up * 0.1f, ForceMode.Impulse);

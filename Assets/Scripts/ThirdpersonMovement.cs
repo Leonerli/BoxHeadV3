@@ -43,5 +43,7 @@ public class ThirdpersonMovement : MonoBehaviour
             anim.SetFloat("Speed", 0.0f);
 
         }
+
+        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     }
 }
